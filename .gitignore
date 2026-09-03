@@ -1,0 +1,13 @@
+# LaTeX intermediates
+cv_src/*.aux
+cv_src/*.log
+cv_src/*.out
+cv_src/*.fls
+cv_src/*.fdb_latexmk
+cv_src/*.synctex.gz
+cv_src/*.xdv
+cv_src/materials/
+
+# OS / editor
+.DS_Store
+Thumbs.db

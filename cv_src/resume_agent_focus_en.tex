@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=1.25cm,right=1.25cm,top=0.95cm,bottom=0.95cm]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\definecolor{accent}{RGB}{15,78,110}
+\definecolor{muted}{RGB}{78,78,78}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-2pt}\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{4.5pt}
+
+\newcommand{\entry}[2]{%
+  \begin{tabularx}{\textwidth}{@{}Xr@{}}\textbf{#1} & {\color{muted}#2}\end{tabularx}%
+}
+\newcommand{\meta}[1]{{\small\color{muted}#1}\par}
+\newcommand{\projectdesc}[1]{\vspace{1pt}{\small #1\par}\vspace{3pt}}
+\setlength{\columnsep}{10pt}
+\setlength{\intextsep}{0pt}
+\newcommand{\projectseparator}{%
+  \WFclear
+  \vspace{3pt}
+  \noindent{\color{accent!70}\rule{\textwidth}{0.45pt}}\par
+  \vspace{5pt}%
+}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.79\textwidth}
+  \vspace{0pt}
+  {\fontsize{18}{21}\selectfont\bfseries Shuo REN}\par
+  \vspace{3pt}
+  {\small Email:
+    sren@cse.cuhk.edu.hk \,$\cdot$\,
+    renshuo139@gmail.com}\par
+  \vspace{6pt}
+  \textbf{PhD researcher building long-horizon, tool-grounded LLM agents for complex engineering workflows.} Research spans multi-agent physical-design optimization, failure-conditioned repair, and automatically generated evaluation environments, grounded in verifiable EDA and mathematical-optimization tools.\par
+\end{minipage}\hfill
+\begin{minipage}[t]{0.17\textwidth}
+  \vspace{0pt}
+  \raggedleft
+  \includegraphics[height=3.20cm,trim=22 18 22 6,clip]{../materials/assets/avatar/sren.pdf}
+\end{minipage}\par
+
+\vspace{3pt}
+
+\section*{Internship \& Education}
+\entry{Research Intern, EDA Research Lab, Hong Kong Science Park}{May 2026--Present}
+\projectdesc{Developing agentic 3D-IC workflows that couple LLM agents with industrial physical-design tools and feedback for partitioning and design-space exploration.}
+
+\entry{Research Collaboration, ABCO Project (CUHK Industry Collaboration)}{Mar 2025--Apr 2026}
+\projectdesc{Built the physical-design-to-architecture feedback loop behind \href{https://arxiv.org/abs/2607.12788}{CLIP-3D}, connecting analytical 3D floorplanning with gem5, McPAT, CACTI, and HotSpot.}
+
+\entry{The Chinese University of Hong Kong (CUHK)}{Sep 2024--Present}
+\meta{PhD in CSE, full postgraduate studentship; working with \href{https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/}{\textcolor{muted}{Prof. Tsung-Yi Ho}} and \href{https://www.cse.cuhk.edu.hk/~byu/}{\textcolor{muted}{Prof. Bei Yu}}}
+
+\entry{Huazhong University of Science and Technology (HUST)}{2020--2024}
+\meta{BEng in Computer Science and Technology; GPA 3.93/4.00, top 1.5\%; \textbf{National Scholarship of China}}
+
+\section*{Selected Agent Research}
+\begin{wrapfigure}[8]{l}{0.285\textwidth}
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticpd_intro.pdf}
+  \vspace{0pt}
+\end{wrapfigure}
+{\small\textbf{AgenticPD} \href{https://arxiv.org/abs/2607.04758}{[link]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} formulated chip physical-design optimization as a stage-aware tree search rather than flat parameter tuning or one-shot script generation. Built a hierarchical harness where a Judge Agent navigates reusable intermediate design states and stage agents act through stage-scoped tools with structured execution feedback and context management; evaluated across six design/technology combinations.\par}
+
+\vspace{6pt}
+\projectseparator
+
+\begin{wrapfigure}[5]{l}{0.285\textwidth}
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticeco_intro.pdf}
+  \vspace{0pt}
+\end{wrapfigure}
+{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[link]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} formulated post-route ECO for 3D-IC chip design as failure-conditioned agentic repair. Typed timing, routing, layout, and violation evidence drives deterministic repair programs executed outside the LLM. Every edit must pass immutable DRC, timing, structural-equivalence, and preservation gates; the closed loop cleared 7/9 matched cases versus 2/9 for stock repair and 9/9 in a cross-backbone rerun.\par}
+
+\vspace{6pt}
+\projectseparator
+
+\begin{wrapfigure}[4]{l}{0.285\textwidth}
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/autolpbench_intro.pdf}
+  \vspace{0pt}
+\end{wrapfigure}
+{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[link]} \href{https://anonymous.4open.science/r/AutoLPBench/}{[code]} replaced fixed LP corpora with an inverse-KKT generator and an agent-runnable Docker environment producing unlimited problems with certified optima and tunable difficulty. Across five frontier models, the solver--critic loop achieved a best gain of 15.1 percentage points on MAMO Complex, with repeatable trajectories and audited token costs.\par}
+
+\WFclear
+
+\section*{EDA Research Background}
+{\small
+\textbf{Partitioning-Free 3D-IC Floorplanning} \href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]}, removed up-front netlist partitioning and jointly optimized block placement and die assignment under physical constraints; accepted at ASP-DAC 2026.\par
+\vspace{3pt}
+\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[link]}, connected gem5, McPAT, CACTI, HotSpot, and analytical 3D floorplanning to expose thermal, wire, and cache effects during architecture exploration; improved realized BIPS by 13.75\% on average across thermally binding configurations; featured as an Agentic 3D-IC case study in an IDAS 2026 keynote.\par
+\vspace{3pt}
+\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[link]}, embedded exact pin transformations and a convolutional 3D thermal field in a MILP floorplanner; reduced wirelength by 39--43\% on average and peak temperature by up to 45.9$^\circ$C versus prior baselines.\par
+}
+
+\section*{Technical Stack}
+{\small
+\textbf{Agent/LLM}: Python; tool-use and multi-agent systems; structured tool APIs; Docker evaluation harnesses; trajectory, failure, and token-cost analysis; AI-native development with Claude Code and Codex.\par
+\vspace{2pt}
+\textbf{EDA/Systems}: C/C++, Linux, Git; OpenROAD/ORFS and Innovus; physical design, STA, and 3D-IC workflows; gem5, McPAT, CACTI, and HotSpot.\par
+}
+
+\end{document}

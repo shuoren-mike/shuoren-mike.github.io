@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shuo Ren — PhD Candidate, CUHK CSE</title>
+<meta name="description" content="Shuo Ren is a third-year PhD candidate in Computer Science and Engineering at The Chinese University of Hong Kong, working on EDA, 3D-IC, chiplet design, and LLM agents for physical design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfbf9;
+    --surface: #ffffff;
+    --text: #1d2229;
+    --muted: #5f6b7a;
+    --faint: #9aa4b1;
+    --line: #e5e8ec;
+    --accent: #0b3d6b;
+    --accent-soft: #e9f0f8;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(251,251,249,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .inner {
+    max-width: 960px; margin: 0 auto; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  nav .brand { font-family: var(--serif); font-weight: 600; font-size: 18px; color: var(--text); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 18px; flex-wrap: wrap; }
+  nav ul a { color: var(--muted); font-size: 14px; font-weight: 500; }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+  /* ---------- layout ---------- */
+  main { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+  section { padding-top: 56px; }
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: 26px;
+    margin: 0 0 20px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+  h3 { font-size: 16px; font-weight: 600; margin: 0; }
+  .muted { color: var(--muted); }
+  .faint { color: var(--faint); font-size: 14px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start;
+    padding-top: 56px;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 600; font-size: 44px;
+    line-height: 1.1; margin: 0 0 8px;
+  }
+  .hero .role { font-size: 18px; color: var(--muted); margin: 0 0 18px; }
+  .hero p { margin: 0 0 14px; font-size: 17px; }
+  .hero .affil a { font-weight: 500; }
+  .hero img.photo {
+    width: 200px; height: 200px; border-radius: 50%; display: block;
+    object-fit: cover; margin-top: 8px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+    border: 4px solid var(--surface);
+  }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .links a {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 14px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--surface);
+    font-size: 14px; font-weight: 500; color: var(--text);
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .links svg { width: 15px; height: 15px; fill: currentColor; }
+  .cvgroup { display: inline-flex; }
+  .cvgroup a:first-child { border-radius: 999px 0 0 999px; border-right: none; }
+  .cvgroup a.alt {
+    border-radius: 0 999px 999px 0; padding: 7px 12px;
+    color: var(--muted); font-size: 13px;
+  }
+  .cvgroup a.alt:hover { color: var(--accent); }
+
+  /* ---------- interests chips ---------- */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .chip {
+    background: var(--accent-soft); color: var(--accent);
+    padding: 4px 12px; border-radius: 6px; font-size: 14px; font-weight: 500;
+  }
+
+  /* ---------- timeline entries ---------- */
+  .entry { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .entry:last-child { border-bottom: none; }
+  .entry .date { color: var(--muted); font-size: 14px; white-space: nowrap; }
+  .entry .org { color: var(--muted); font-size: 15px; }
+  .entry ul { grid-column: 1 / -1; margin: 4px 0 0; padding-left: 20px; font-size: 15px; }
+  .entry li { margin: 2px 0; }
+
+  /* ---------- research cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .card .fig {
+    height: 170px; background: #fff; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; padding: 14px;
+  }
+  .card .fig img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .card .body { padding: 16px 18px 18px; }
+  .card h3 { font-size: 16px; margin-bottom: 6px; }
+  .card p { margin: 0 0 10px; font-size: 14.5px; color: var(--muted); }
+  .card .tags a, .card .tags span {
+    font-size: 13px; margin-right: 10px; font-weight: 500;
+  }
+  .card .venue { font-size: 13px; color: var(--accent); font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; }
+
+  /* ---------- publications ---------- */
+  .pubs { list-style: none; padding: 0; margin: 0; counter-reset: pub; }
+  .pubs li {
+    position: relative; padding: 12px 0 12px 40px; border-bottom: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .pubs li:last-child { border-bottom: none; }
+  .pubs li::before {
+    counter-increment: pub; content: "[" counter(pub) "]";
+    position: absolute; left: 0; top: 12px; color: var(--faint); font-size: 14px;
+  }
+  .pubs .title { font-weight: 600; }
+  .pubs .venue { color: var(--muted); }
+  .pubs .me { text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
+  .pubs .lnk a { font-size: 13.5px; margin-right: 8px; }
+  .pubs .lnk a::before { content: "["; color: var(--faint); }
+  .pubs .lnk a::after { content: "]"; color: var(--faint); }
+
+  /* ---------- aligned rows (awards / service) ---------- */
+  .grp { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 26px 0 4px; }
+  .grp:first-child { margin-top: 0; }
+  .rows { display: block; }
+  .row { display: grid; grid-template-columns: 1fr auto; column-gap: 24px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .row:last-child { border-bottom: none; }
+  .rows.skills .row { grid-template-columns: 150px 1fr; }
+  .rows.skills .k { font-weight: 600; color: var(--muted); font-size: 15px; }
+  .rows.skills .v { font-size: 15px; }
+  .row .name { font-size: 15px; }
+  .row .name strong { font-weight: 600; }
+  .row .sub { display: block; color: var(--muted); font-size: 13.5px; margin-top: 1px; }
+  .row .yr { color: var(--muted); font-size: 14px; white-space: nowrap; text-align: right; }
+  .two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; align-items: start; }
+
+  /* ---------- two-column blocks ---------- */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .two h3 { margin-bottom: 10px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+  .two ul { margin: 0; padding-left: 20px; font-size: 15px; }
+  .two li { margin: 5px 0; }
+  .two li .sub { display: block; color: var(--muted); font-size: 13.5px; }
+
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--line); padding: 28px 24px; text-align: center;
+    color: var(--faint); font-size: 13.5px;
+  }
+
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero img.photo { width: 150px; height: 150px; }
+    .hero h1 { font-size: 36px; }
+    .cards, .two, .two-cols { grid-template-columns: 1fr; }
+    .row, .rows.skills .row { grid-template-columns: 1fr; row-gap: 2px; }
+    .row .yr { text-align: left; }
+    .entry { grid-template-columns: 1fr; }
+    nav ul { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <span class="brand">Shuo Ren</span>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div>
+    <h1>Shuo Ren</h1>
+    <p class="role">PhD Candidate · Computer Science and Engineering · The Chinese University of Hong Kong</p>
+    <p class="affil">
+      I am currently a third-year PhD candidate in the Department of Computer Science and Engineering at
+      <a href="https://www.cse.cuhk.edu.hk/">The Chinese University of Hong Kong (CUHK)</a>, affiliated with
+      <a href="https://tsungyiho.github.io/research-group/">IDEALab</a>.
+      I am supervised by <a href="https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/">Prof. Tsung-Yi Ho</a> (IEEE Fellow)
+      and work closely with <a href="https://www.cse.cuhk.edu.hk/~byu/">Prof. Bei Yu</a>.
+      I am also a research intern at Hong Kong Science Park.
+    </p>
+    <p>
+      My research lies in Electronic Design Automation (EDA), with a focus on 3D integrated circuits,
+      chiplet-based design, and algorithmic optimization for physical design.
+      More recently I have been building long-horizon, tool-grounded LLM agents for
+      complex engineering workflows such as physical-design QoR optimization and post-route ECO.
+    </p>
+    <div class="chips">
+      <span class="chip">3D-IC Floorplanning</span>
+      <span class="chip">Chiplet Design</span>
+      <span class="chip">Physical Design</span>
+      <span class="chip">LLM Agents for EDA</span>
+      <span class="chip">Mathematical Optimization</span>
+    </div>
+    <div class="links">
+      <a href="mailto:sren@cse.cuhk.edu.hk">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        sren@cse.cuhk.edu.hk
+      </a>
+      <a href="https://github.com/shuoren-mike">
+        <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        GitHub
+      </a>
+      <a href="https://scholar.google.com/citations?user=l-igdfMAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zm0 14.5L5 13.7V17c0 2.2 3.1 4 7 4s7-1.8 7-4v-3.3l-7 3.8z"/></svg>
+        Google Scholar
+      </a>
+      <span class="cvgroup">
+        <a href="cv_en.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8zm0 4h8v2H8z"/></svg>
+          CV (PDF)
+        </a><a href="cv_zh.pdf" target="_blank" rel="noopener" class="alt" title="Chinese version of the CV" lang="zh">中文</a>
+      </span>
+    </div>
+  </div>
+  <img src="assets/photo.jpg" alt="Photo of Shuo Ren" class="photo">
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section id="research">
+  <h2>Selected Research</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="fig"><img src="assets/fig_agenticpd.png" alt="AgenticPD framework"></div>
+      <div class="body">
+        <span class="venue">ASP-DAC 2027</span>
+        <h3>AgenticPD: Stage-Aware Agentic Physical Design QoR Optimization</h3>
+        <p>Formulates physical-design QoR tuning as a stage-aware tree search over floorplan, placement, CTS and routing checkpoints, with a Judge Agent navigating reusable intermediate design states.</p>
+        <div class="tags">
+          <a href="https://arxiv.org/abs/2607.04758">Paper</a>
+          <a href="https://github.com/shuoren-mike/AgenticPD">Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="fig"><img src="assets/fig_agenticeco.png" alt="AgenticECO framework"></div>
+      <div class="body">
+        <span class="venue">Preprint 2026</span>
+        <h3>AgenticECO: Failure-Conditioned Agentic Repair for Post-Route ECO</h3>
+        <p>Formulates post-route ECO for 3D-IC design as failure-conditioned agentic repair. Typed timing, routing, layout and violation evidence drives deterministic repair programs executed outside the LLM, and every edit must pass immutable DRC, timing, equivalence and preservation gates.</p>
+        <div class="tags">
+          <a href="https://arxiv.org/abs/2608.03738">Paper</a>
+          <a href="https://anonymous.4open.science/r/AgenticECO">Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="fig"><img src="assets/fig_3dfloorplan.png" alt="Partitioning-free 3D-IC floorplan framework"></div>
+      <div class="body">
+        <span class="venue">ASP-DAC 2026</span>
+        <h3>Partitioning-free 3D-IC Floorplan</h3>
+        <p>Removes the up-front netlist partitioning step and jointly optimizes block placement and die assignment directly under physical constraints.</p>
+        <div class="tags">
+          <a href="https://flians.github.io/pdf/3DFloorplan.pdf">Paper</a>
+          <a href="http://www.cse.cuhk.edu.hk/~byu/papers/C307-ASPDAC2026-3DFloorplan-slides.pdf">Slides</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="fig"><img src="assets/fig_clip3d.png" alt="CLIP-3D framework"></div>
+      <div class="body">
+        <span class="venue">Preprint 2026</span>
+        <h3>CLIP-3D: Architecture-level Shift-left in 3D-IC Design</h3>
+        <p>Connects gem5, McPAT, CACTI, HotSpot and analytical 3D floorplanning to expose floorplan-driven thermal, wire and cache effects during architecture exploration. Improves realized BIPS by 13.75% on average across thermally binding configurations.</p>
+        <div class="tags"><a href="https://arxiv.org/abs/2607.12788">Paper</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="fig"><img src="assets/fig_chiplet3d.png" alt="Chiplet3D framework"></div>
+      <div class="body">
+        <span class="venue">Preprint 2026</span>
+        <h3>Chiplet3D: Pin- and Thermal-Aware 3D Chiplet Floorplanning</h3>
+        <p>Embeds exact pin transformations and a convolutional 3D thermal field inside a MILP floorplanner to co-optimize wirelength and temperature. Cuts wirelength by 39–43% and peak temperature by up to 45.9 °C versus prior baselines.</p>
+        <div class="tags"><a href="https://arxiv.org/abs/2607.09742">Paper</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="fig"><img src="assets/fig_autolpbench.png" alt="AutoLPBench framework"></div>
+      <div class="body">
+        <span class="venue">Preprint 2026</span>
+        <h3>A²utoLPBench: Auto-Generated LP Benchmark via Inverse-KKT</h3>
+        <p>Replaces fixed LP-from-text corpora with an inverse-KKT generator and an agent-runnable Docker environment that produces unlimited problems with certified optima and tunable difficulty.</p>
+        <div class="tags"><a href="https://arxiv.org/abs/2607.02141">Paper</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="fig"><img src="assets/fig_rect3d.png" alt="3D-IC rectilinear floorplanning flow"></div>
+      <div class="body">
+        <span class="venue">Under submission</span>
+        <h3>3D-IC Rectilinear Floorplanning</h3>
+        <p>Unifies global rectilinear floorplanning and legalization for 3D-IC layouts with irregular block shapes.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section id="publications">
+  <h2>Publications &amp; Preprints</h2>
+  <ol class="pubs">
+    <li>
+      <span class="title">AgenticPD: A Stage-Aware Agentic Framework for Physical Design QoR Optimization.</span><br>
+      <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">Asia and South Pacific Design Automation Conference (ASP-DAC), 2027.</span><br>
+      <span class="lnk"><a href="https://arxiv.org/abs/2607.04758">paper</a><a href="https://github.com/shuoren-mike/AgenticPD">code</a></span>
+    </li>
+    <li>
+      <span class="title">Partitioning-free 3D-IC Floorplan.</span><br>
+      <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">Asia and South Pacific Design Automation Conference (ASP-DAC), 2026.</span><br>
+      <span class="lnk"><a href="https://flians.github.io/pdf/3DFloorplan.pdf">paper</a><a href="http://www.cse.cuhk.edu.hk/~byu/papers/C307-ASPDAC2026-3DFloorplan-slides.pdf">slides</a></span>
+    </li>
+    <li>
+      <span class="title">Expert-level Leaf Cell Layout Generation via Preference-Optimized LLM.</span><br>
+      Yaohui Han, Rongliang Fu, Yanming Liu, <span class="me">Shuo Ren</span>, Shuai Dong, Yunpeng Wang, Tinghuan Chen, Bei Yu, Tsung-Yi Ho.
+      <span class="venue">International Conference on Machine Learning (ICML), 2026.</span>
+    </li>
+    <li>
+      <span class="title">THLR: A Top-down Hierarchical Logic Rewrite Framework for Xor-Majority-Inverter Graphs.</span><br>
+      Ran Zhang, Rongliang Fu, <span class="me">Shuo Ren</span>, Wenxing Li, Da Wang, Fei Wang, Xiaochun Ye, Tsung-Yi Ho, Junying Huang.
+      <span class="venue">ACM Great Lakes Symposium on VLSI (GLSVLSI), 2026.</span><br>
+      <span class="lnk"><a href="https://flians.github.io/publication/glsvlsi26/">page</a></span>
+    </li>
+    <li>
+      <span class="title">AgenticECO: Failure-Conditioned Agentic Repair for Post-Route ECO in 3D-IC Design.</span><br>
+      <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">Preprint, 2026.</span><br>
+      <span class="lnk"><a href="https://arxiv.org/abs/2608.03738">paper</a></span>
+    </li>
+    <li>
+      <span class="title">CLIP-3D: Architecture-level Shift-left in 3D-IC Design.</span><br>
+      <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">Preprint, 2026.</span><br>
+      <span class="lnk"><a href="https://arxiv.org/abs/2607.12788">paper</a></span>
+    </li>
+    <li>
+      <span class="title">Chiplet3D: Pin- and Thermal-Aware 3D Chiplet Floorplanning via Convolution-Embedded MILP.</span><br>
+      <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">Preprint, 2026.</span><br>
+      <span class="lnk"><a href="https://arxiv.org/abs/2607.09742">paper</a></span>
+    </li>
+    <li>
+      <span class="title">A²utoLPBench: An Auto-Generated, Agent-Friendly LP Benchmark via Inverse-KKT Construction.</span><br>
+      <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">Preprint, 2026.</span><br>
+      <span class="lnk"><a href="https://arxiv.org/abs/2607.02141">paper</a></span>
+    </li>
+    <li>
+      <span class="title">AstroVLM: Expert Multi-agent Collaborative Reasoning for Astronomical Imaging Quality Diagnosis.</span><br>
+      Yaohui Han, Tianshuo Wang, Zixi Zhao, Zhengchun Zhu, <span class="me">Shuo Ren</span>, Yiru Wang, Rongliang Fu, Tinghuan Chen, Tsung-Yi Ho.
+      <span class="venue">Preprint, 2026.</span><br>
+      <span class="lnk"><a href="https://arxiv.org/abs/2604.16024">paper</a></span>
+    </li>
+    <li>
+      <span class="title">An Efficient Solution Space Exploring and Descent Method for Packing Equal Spheres in a Sphere.</span><br>
+      Jianrong Zhou, <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">Computers &amp; Operations Research, vol. 164, 106522, 2024.</span>
+    </li>
+    <li>
+      <span class="title">A Local Dynamic Programming Algorithm for the Exact 0-1 Knapsack Problem Based on Greedy Backtracking.</span><br>
+      <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">China Theory of Computer Science Conference (CCF NCTCS), 2022.</span>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ EXPERIENCE & EDUCATION ============ -->
+<section id="experience">
+  <h2>Experience &amp; Education</h2>
+
+  <div class="entry">
+    <h3>Research Intern, EDA Research Lab</h3>
+    <span class="date">May 2026 – Present</span>
+    <span class="org">Hong Kong Science Park</span>
+    <ul>
+      <li>Developing agentic 3D-IC workflows that couple LLM agents with industrial physical-design tools for partitioning and design-space exploration.</li>
+      <li>Investigating 3D-IC design-space exploration under architecture-level performance and thermal constraints.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>Research Collaboration, ABCO Project (CUHK Industry Collaboration)</h3>
+    <span class="date">Mar 2025 – Apr 2026</span>
+    <span class="org">Hong Kong Science Park</span>
+    <ul>
+      <li>Built the physical-design-to-architecture feedback loop behind CLIP-3D, connecting analytical 3D floorplanning with gem5, McPAT, CACTI and HotSpot.</li>
+      <li>Explored hybrid-bonding ratio selection in 3D-IC partitioning and its effect on wirelength, footprint and integration cost.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>PhD in Computer Science and Engineering</h3>
+    <span class="date">Sep 2024 – Present</span>
+    <span class="org">The Chinese University of Hong Kong (CUHK)</span>
+    <ul>
+      <li>Postgraduate Studentship (full scholarship). Advisor: Prof. Tsung-Yi Ho; working closely with Prof. Bei Yu.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>BEng in Computer Science and Technology</h3>
+    <span class="date">Sep 2020 – Jun 2024</span>
+    <span class="org">Huazhong University of Science and Technology (HUST), Wuhan</span>
+    <ul>
+      <li>GPA 3.93/4.00, top 1.5% of the major. National Scholarship of China.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ AWARDS ============ -->
+<section id="awards">
+  <h2>Awards &amp; Honors</h2>
+
+  <div class="grp">Graduate</div>
+  <div class="rows">
+    <div class="row"><div class="name">HKSTP Ideation Programme Grant (HKD 100,000)<span class="sub">Hong Kong Science and Technology Parks Corporation · Project BicroLabs.AI</span></div><div class="yr">2026</div></div>
+    <div class="row"><div class="name">Global Social Impact Projects Scheme (G-SIPS) Grant<span class="sub">CUHK Office of Student Affairs · Team EYRA, co-leader</span></div><div class="yr">2025 – 2026</div></div>
+    <div class="row"><div class="name">First Prize, ChipletComp@Wuhan Competition</div><div class="yr">2025</div></div>
+    <div class="row"><div class="name">Postgraduate Studentship (full scholarship)<span class="sub">The Chinese University of Hong Kong</span></div><div class="yr">2024</div></div>
+  </div>
+
+  <div class="grp">Undergraduate</div>
+  <div class="rows">
+    <div class="row"><div class="name"><strong>National Scholarship of China</strong><span class="sub">Ministry of Education of China</span></div><div class="yr">2021</div></div>
+    <div class="row"><div class="name">Meritorious Winner, American Mathematical Contest in Modeling (MCM)</div><div class="yr">2022</div></div>
+    <div class="row"><div class="name">National Special Award, RoboMaster University Championship Robot Developer Competition</div><div class="yr">2022</div></div>
+    <div class="row"><div class="name">National First Prize, China Software Open Source Innovation Contest</div><div class="yr">2022</div></div>
+    <div class="row"><div class="name">National Second Prize, Integrated Circuit EDA Design Elite Challenge</div><div class="yr">2022</div></div>
+    <div class="row"><div class="name">Provincial First Prize, China Undergraduate Mathematical Contest in Modeling</div><div class="yr">2022</div></div>
+  </div>
+</section>
+
+<!-- ============ SERVICE & TEACHING ============ -->
+<section id="service">
+  <h2>Service &amp; Teaching</h2>
+
+  <div class="grp">Professional Service</div>
+  <div class="rows">
+    <div class="row"><div class="name">Reviewer, IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</div><div class="yr">2024 – present</div></div>
+    <div class="row"><div class="name">Program Committee Member, AAAI Conference on Artificial Intelligence<span class="sub">Reviewer, AAAI 2025</span></div><div class="yr">2027</div></div>
+    <div class="row"><div class="name">Reviewer, Asia and South Pacific Design Automation Conference (ASP-DAC)</div><div class="yr">2027</div></div>
+    <div class="row"><div class="name">Reviewer, International Conference on Field-Programmable Logic and Applications (FPL)</div><div class="yr">2026</div></div>
+    <div class="row"><div class="name">Member, CUHK CSE PhD Admission Student Committee<span class="sub">Inaugural committee</span></div><div class="yr">2027</div></div>
+  </div>
+
+  <div class="grp">Teaching</div>
+  <div class="rows">
+    <div class="row"><div class="name">Teaching Assistant, ENGG2440 Discrete Mathematics for Engineers<span class="sub">The Chinese University of Hong Kong</span></div><div class="yr">Fall 2024, Fall 2025</div></div>
+    <div class="row"><div class="name">Teaching Assistant, CSCI1530 Computer Principles and Java Programming<span class="sub">The Chinese University of Hong Kong</span></div><div class="yr">Spring 2025</div></div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="rows skills">
+    <div class="row"><div class="k">Languages</div><div class="v">Python, C/C++, Java, SQL, MATLAB, Verilog</div></div>
+    <div class="row"><div class="k">EDA &amp; Systems</div><div class="v">OpenROAD / ORFS, Innovus, static timing analysis and 3D-IC flows, gem5, McPAT, CACTI, HotSpot, Linux, Git</div></div>
+    <div class="row"><div class="k">Agents &amp; ML</div><div class="v">Tool-use and multi-agent systems, structured tool APIs, Docker evaluation harnesses, PyTorch</div></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>
+    Email is the best way to reach me:
+    <a href="mailto:sren@cse.cuhk.edu.hk">sren@cse.cuhk.edu.hk</a> or
+    <a href="mailto:renshuo139@gmail.com">renshuo139@gmail.com</a>.
+  </p>
+  <p class="muted">
+    Department of Computer Science and Engineering, The Chinese University of Hong Kong, Shatin, N.T., Hong Kong
+  </p>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Shuo Ren · Last updated September 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+\documentclass[11pt,a4paper,fontset=none]{ctexart}
+\usepackage[left=1.25cm,right=1.25cm,top=0.95cm,bottom=0.95cm]{geometry}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+
+\definecolor{accent}{RGB}{15,78,110}
+\definecolor{muted}{RGB}{78,78,78}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-2pt}\titlerule]
+\titlespacing*{\section}{0pt}{5pt}{3.5pt}
+
+\newcommand{\entry}[2]{%
+  \begin{tabularx}{\textwidth}{@{}Xr@{}}\textbf{#1} & {\color{muted}#2}\end{tabularx}%
+}
+\newcommand{\meta}[1]{{\small\color{muted}#1}\par}
+\newcommand{\projectdesc}[1]{\vspace{1pt}{\small #1\par}\vspace{3pt}}
+\setlength{\columnsep}{10pt}
+\setlength{\intextsep}{0pt}
+\newcommand{\projectseparator}{%
+  \WFclear
+  \vspace{2pt}
+  \noindent{\color{accent!70}\rule{\textwidth}{0.45pt}}\par
+  \vspace{4pt}%
+}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.79\textwidth}
+  \vspace{0pt}
+  {\fontsize{18}{21}\selectfont\bfseries 任硕}\quad
+  {\fontsize{13}{16}\selectfont Shuo REN}\par
+  \vspace{3pt}
+  {\small 邮箱：
+    sren@cse.cuhk.edu.hk \,$\cdot$\,
+    renshuo139@gmail.com}\par
+  \vspace{6pt}
+  \textbf{香港中文大学计算机科学与工程系博士生，面向复杂工程流程研究长程、工具驱动的大语言模型智能体。} 研究工作涵盖多智能体物理设计优化、失败条件驱动的闭环修复与自动生成评测环境，以可验证的 EDA 和数学优化工具为真实任务基础。\par
+\end{minipage}\hfill
+\begin{minipage}[t]{0.17\textwidth}
+  \vspace{0pt}
+  \raggedleft
+  \includegraphics[height=3.20cm,trim=22 18 22 6,clip]{../materials/assets/avatar/sren.pdf}
+\end{minipage}\par
+
+\vspace{3pt}
+
+\section*{实习与教育经历}
+\entry{Research Intern，香港科学园 EDA 研究实验室}{2026年5月--至今}
+\projectdesc{开展 Agentic 3D-IC 研究，将 LLM 智能体与工业物理设计工具及反馈闭环结合，用于 3D-IC 划分与设计空间探索。构建覆盖任务分解、工具调用、结果校验与迭代优化的智能体工作流，以可验证的物理设计反馈支持长程规划、错误恢复与设计决策，并沉淀可复用的工具接口、执行轨迹与评测机制。}
+
+\entry{ABCO 项目科研合作（CUHK 产学研合作项目）}{2025年3月--2026年4月}
+\projectdesc{项目经费规模 100 万港币，获“优秀”评价（最高档）；构建 \href{https://arxiv.org/abs/2607.12788}{CLIP-3D} 背后的物理设计到体系结构反馈闭环，连接解析式 3D 布局规划与 gem5、McPAT、CACTI、HotSpot。}
+
+\entry{香港中文大学（CUHK）}{2024年9月--至今}
+\meta{计算机科学与工程博士，全额研究生奖学金；与\href{https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/}{\textcolor{muted}{何宗易教授}}和\href{https://www.cse.cuhk.edu.hk/~byu/}{\textcolor{muted}{余备教授}}合作}
+
+\entry{华中科技大学（HUST）}{2020--2024}
+\meta{计算机科学与技术工学学士；GPA 3.93/4.00，专业前 1.5\%；\textbf{国家奖学金}}
+
+\section*{代表性智能体研究}
+\begin{wrapfigure}[8]{l}{0.285\textwidth}
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticpd_intro.pdf}
+  \vspace{0pt}
+\end{wrapfigure}
+{\small\textbf{AgenticPD} \href{https://arxiv.org/abs/2607.04758}{[paper]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} 将芯片物理设计优化建模为阶段感知树搜索，而非平坦参数调优或一次性脚本生成。构建分层智能体框架：Judge Agent 在可复用中间设计状态间导航，阶段智能体通过限定工具、结构化执行反馈与上下文管理完成优化；在六组设计/工艺组合上评测完整的跨阶段优化流程。\par}
+
+\vspace{4pt}
+\projectseparator
+
+\begin{wrapfigure}[5]{l}{0.285\textwidth}
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticeco_intro.pdf}
+  \vspace{0pt}
+\end{wrapfigure}
+{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[paper]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} 将芯片布局布线后的 3D-IC ECO 建模为失败条件驱动的智能体修复。结构化的时序、布线、版图与违规证据驱动 LLM 外部的确定性修复程序；每次修改必须通过 DRC、时序、结构等价与保留性验证门。闭环在匹配案例中通过 7/9，基线为 2/9；跨模型复测达到 9/9，并保持全部验证门。\par}
+
+\vspace{4pt}
+\projectseparator
+
+\begin{wrapfigure}[4]{l}{0.285\textwidth}
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/autolpbench_intro.pdf}
+  \vspace{0pt}
+\end{wrapfigure}
+{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[paper]} \href{https://anonymous.4open.science/r/AutoLPBench/}{[code]} 以逆 KKT 生成器和智能体可运行的 Docker 环境替代固定题库，生成带认证最优解、难度可控的无限任务。五个前沿模型评测中，求解器--批评器闭环使 MAMO Complex 最高提升 15.1 个百分点，并提供可复现轨迹与 token 成本审计，支持求解行为和智能体效率分析。\par}
+
+\WFclear
+
+\section*{EDA 研究背景}
+{\small
+\textbf{Partitioning-Free 3D-IC Floorplanning} \href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]}：取消网表预划分，联合优化模块位置与晶粒分配；ASP-DAC 2026 录用。\par
+\vspace{1pt}
+\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[paper]}：连接 gem5、McPAT、CACTI、HotSpot 与解析式 3D 布局规划，在体系结构探索阶段引入热、互连与缓存影响；受热约束配置的实际 BIPS 平均提升 13.75\%；该工作作为 Agentic 3D-IC 案例在 IDAS 2026 keynote 中介绍。\par
+\vspace{1pt}
+\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[paper]}：MILP 布局规划器嵌入引脚变换与卷积 3D 热场；线长平均降低 39--43\%，峰值温度最多降低 45.9$^\circ$C。\par
+}
+
+\section*{技术能力}
+{\small
+\textbf{Agent/LLM：}重度使用 Claude Code 和 Codex；AI 原生开发、多智能体工具调用、结构化 API 与 Docker 评测。\par
+\vspace{2pt}
+\textbf{EDA/系统：}基于 OpenROAD/ORFS 开源 flow 的 end-to-end 物理设计能力；Innovus；STA 与 3D-IC 流程。\par
+}
+
+\end{document}
