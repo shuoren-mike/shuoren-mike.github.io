@@ -11,3 +11,7 @@ cv_src/materials/
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# AI-assistant project memory (never publish)
+.agents/
+.mem/
