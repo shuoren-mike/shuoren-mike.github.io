@@ -73,13 +73,13 @@
 \meta{计算机科学与技术工学学士；GPA 3.93/4.00，专业前 1.5\%；\textbf{国家奖学金}}
 
 \section*{代表性智能体研究}
-\begin{wrapfigure}[8]{l}{0.285\textwidth}
+\begin{wrapfigure}[6]{l}{0.285\textwidth}
   \vspace{0pt}
   \centering
   \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticpd_intro.pdf}
   \vspace{0pt}
 \end{wrapfigure}
-{\small\textbf{AgenticPD} \href{https://arxiv.org/abs/2607.04758}{[paper]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} 将芯片物理设计优化建模为阶段感知树搜索，而非平坦参数调优或一次性脚本生成。构建分层智能体框架：Judge Agent 在可复用中间设计状态间导航，阶段智能体通过限定工具、结构化执行反馈与上下文管理完成优化；在六组设计/工艺组合上评测完整的跨阶段优化流程。\par}
+{\small\textbf{AgenticPD}（ASP-DAC 2027）\href{https://arxiv.org/abs/2607.04758}{[paper]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} 构建芯片物理设计多智能体优化系统；同等 20 次评估预算下，\textbf{六组设计/工艺组合的布线后 WNS 均优于 AutoTuner 与 ORFS-Agent}。设计跨阶段搜索、工具接口与状态复用机制，根据执行反馈选择优化阶段；在 DeepSeek、Qwen、Kimi 上的九组对比中，七组优于单智能体。\par}
 
 \vspace{4pt}
 \projectseparator
@@ -90,7 +90,7 @@
   \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticeco_intro.pdf}
   \vspace{0pt}
 \end{wrapfigure}
-{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[paper]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} 将芯片布局布线后的 3D-IC ECO 建模为失败条件驱动的智能体修复。结构化的时序、布线、版图与违规证据驱动 LLM 外部的确定性修复程序；每次修改必须通过 DRC、时序、结构等价与保留性验证门。闭环在匹配案例中通过 7/9，基线为 2/9；跨模型复测达到 9/9，并保持全部验证门。\par}
+{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[paper]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} 构建芯片 3D-IC 自动修复系统，将缺陷诊断、并行候选探索与低扰动布线接入工具验证闭环。相同预算下，\textbf{九例缺陷中七例 DRC 清零，传统修复与全量重布线均为两例}；清零案例平均仅改动 0.66\% 的网络，不触碰时钟网络。跨模型复测九例全部清零，七例通过全部检查，平均网络改动率 0.44\%。\par}
 
 \vspace{4pt}
 \projectseparator
@@ -101,17 +101,17 @@
   \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/autolpbench_intro.pdf}
   \vspace{0pt}
 \end{wrapfigure}
-{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[paper]} \href{https://anonymous.4open.science/r/AutoLPBench/}{[code]} 以逆 KKT 生成器和智能体可运行的 Docker 环境替代固定题库，生成带认证最优解、难度可控的无限任务。五个前沿模型评测中，求解器--批评器闭环使 MAMO Complex 最高提升 15.1 个百分点，并提供可复现轨迹与 token 成本审计，支持求解行为和智能体效率分析。\par}
+{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[paper]} \href{https://anonymous.4open.science/r/AutoLPBench/}{[code]} 构建从自动出题、答案校验到智能体执行的评测平台，支持难度控制、Docker 一键评测及轨迹/token 成本分析。以逆 KKT 构造已知最优解，无需人工标注答案；评测六个模型系列，在 MAMO Complex 的 53 题子集上，\textbf{solver--critic 闭环使 Kimi-K2.5 解题率由 15.1\% 提升至 30.2\%}。\par}
 
 \WFclear
 
 \section*{EDA 研究背景}
 {\small
-\textbf{Partitioning-Free 3D-IC Floorplanning} \href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]}：取消网表预划分，联合优化模块位置与晶粒分配；ASP-DAC 2026 录用。\par
+\textbf{Partitioning-Free 3D-IC Floorplanning}（ASP-DAC 2026）\href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]}：联合优化芯片模块布局与晶粒分配；五个 GSRC 基准上的线长均优于六种对比方法。\par
 \vspace{1pt}
-\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[paper]}：连接 gem5、McPAT、CACTI、HotSpot 与解析式 3D 布局规划，在体系结构探索阶段引入热、互连与缓存影响；受热约束配置的实际 BIPS 平均提升 13.75\%；该工作作为 Agentic 3D-IC 案例在 IDAS 2026 keynote 中介绍。\par
+\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[paper]}：打通芯片体系结构与物理设计评估；48 个热约束配置中，相对 shelf-pack 基线的实际 BIPS 平均提升 13.75\%，最高 24.77\%。作为 3D-IC 案例在 IDAS 2026 keynote 中介绍。\par
 \vspace{1pt}
-\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[paper]}：MILP 布局规划器嵌入引脚变换与卷积 3D 热场；线长平均降低 39--43\%，峰值温度最多降低 45.9$^\circ$C。\par
+\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[paper]}：联合优化芯粒引脚与 3D 热场，相对对比方法线长平均降低 39--43\%，峰值温度最多降低 45.9$^\circ$C；通过 3D-ICE 仿真验证温度。\par
 }
 
 \section*{技术能力}

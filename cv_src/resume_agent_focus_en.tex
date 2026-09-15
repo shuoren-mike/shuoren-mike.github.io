@@ -75,39 +75,39 @@
   \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticpd_intro.pdf}
   \vspace{0pt}
 \end{wrapfigure}
-{\small\textbf{AgenticPD} \href{https://arxiv.org/abs/2607.04758}{[link]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} formulated chip physical-design optimization as a stage-aware tree search rather than flat parameter tuning or one-shot script generation. Built a hierarchical harness where a Judge Agent navigates reusable intermediate design states and stage agents act through stage-scoped tools with structured execution feedback and context management; evaluated across six design/technology combinations.\par}
+{\small\textbf{AgenticPD} (ASP-DAC 2027) \href{https://arxiv.org/abs/2607.04758}{[paper]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} built a multi-agent chip physical-design optimizer that \textbf{outperformed AutoTuner and ORFS-Agent on post-route WNS across all six design/technology pairs} at the same 20-evaluation budget. Designed stage-aware search, tool interfaces, and reusable design states; won 7/9 comparisons against a single agent across DeepSeek, Qwen, and Kimi backbones.\par}
 
 \vspace{6pt}
 \projectseparator
 
-\begin{wrapfigure}[5]{l}{0.285\textwidth}
+\begin{wrapfigure}[7]{l}{0.285\textwidth}
   \vspace{0pt}
   \centering
   \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticeco_intro.pdf}
   \vspace{0pt}
 \end{wrapfigure}
-{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[link]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} formulated post-route ECO for 3D-IC chip design as failure-conditioned agentic repair. Typed timing, routing, layout, and violation evidence drives deterministic repair programs executed outside the LLM. Every edit must pass immutable DRC, timing, structural-equivalence, and preservation gates; the closed loop cleared 7/9 matched cases versus 2/9 for stock repair and 9/9 in a cross-backbone rerun.\par}
+{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[paper]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} built an automated 3D-IC chip repair system combining diagnosis, parallel candidate search, and minimal-disturbance routing. \textbf{Cleared DRC in 7/9 cases versus 2/9 for stock repair and full reroute} under matched budgets; changed only 0.66\% of nets on average in cleared cases, touching no clocks. A cross-backbone rerun cleared all nine cases, with seven passing all checks and 0.44\% mean net disturbance.\par}
 
 \vspace{6pt}
 \projectseparator
 
-\begin{wrapfigure}[4]{l}{0.285\textwidth}
+\begin{wrapfigure}[7]{l}{0.285\textwidth}
   \vspace{0pt}
   \centering
   \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/autolpbench_intro.pdf}
   \vspace{0pt}
 \end{wrapfigure}
-{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[link]} \href{https://anonymous.4open.science/r/AutoLPBench/}{[code]} replaced fixed LP corpora with an inverse-KKT generator and an agent-runnable Docker environment producing unlimited problems with certified optima and tunable difficulty. Across five frontier models, the solver--critic loop achieved a best gain of 15.1 percentage points on MAMO Complex, with repeatable trajectories and audited token costs.\par}
+{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[paper]} \href{https://anonymous.4open.science/r/AutoLPBench/}{[code]} built an end-to-end agent evaluation platform with automatic task generation, known-optimum verification, Docker execution, and trajectory/token-cost auditing. An inverse-KKT generator supplies difficulty-controlled tasks without manual answer labeling. Evaluated six model families; the solver--critic loop \textbf{raised Kimi-K2.5's solve rate from 15.1\% to 30.2\%} on a 53-item MAMO Complex subset.\par}
 
 \WFclear
 
 \section*{EDA Research Background}
 {\small
-\textbf{Partitioning-Free 3D-IC Floorplanning} \href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]}, removed up-front netlist partitioning and jointly optimized block placement and die assignment under physical constraints; accepted at ASP-DAC 2026.\par
+\textbf{Partitioning-Free 3D-IC Floorplanning} (ASP-DAC 2026) \href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]}, jointly optimized chip block placement and die assignment, achieving shorter wirelength than six baselines on all five GSRC benchmarks.\par
 \vspace{3pt}
-\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[link]}, connected gem5, McPAT, CACTI, HotSpot, and analytical 3D floorplanning to expose thermal, wire, and cache effects during architecture exploration; improved realized BIPS by 13.75\% on average across thermally binding configurations; featured as an Agentic 3D-IC case study in an IDAS 2026 keynote.\par
+\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[paper]}, connected chip architecture and physical evaluation; improved realized BIPS by 13.75\% on average (up to 24.77\%) over shelf-pack across 48 thermally binding configurations. Featured as a 3D-IC case study in an IDAS 2026 keynote.\par
 \vspace{3pt}
-\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[link]}, embedded exact pin transformations and a convolutional 3D thermal field in a MILP floorplanner; reduced wirelength by 39--43\% on average and peak temperature by up to 45.9$^\circ$C versus prior baselines.\par
+\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[paper]}, co-optimized chiplet pin placement and 3D thermal fields, reducing wirelength by 39--43\% on average and peak temperature by up to 45.9$^\circ$C versus baselines; validated temperatures with 3D-ICE.\par
 }
 
 \section*{Technical Stack}
