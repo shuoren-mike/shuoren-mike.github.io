@@ -8,7 +8,6 @@
 \usepackage{tabularx}
 \usepackage{microtype}
 \usepackage{graphicx}
-\usepackage{wrapfig}
 
 \definecolor{accent}{RGB}{15,78,110}
 \definecolor{muted}{RGB}{78,78,78}
@@ -24,12 +23,9 @@
 }
 \newcommand{\meta}[1]{{\small\color{muted}#1}\par}
 \newcommand{\projectdesc}[1]{\vspace{1pt}{\small #1\par}\vspace{3pt}}
-\setlength{\columnsep}{10pt}
-\setlength{\intextsep}{0pt}
 \newcommand{\projectseparator}{%
-  \WFclear
-  \vspace{3pt}
-  \noindent{\color{accent!70}\rule{\textwidth}{0.45pt}}\par
+  \par\vspace{5pt}
+  {\color{accent!70}\hrule height 0.45pt}
   \vspace{5pt}%
 }
 
@@ -38,14 +34,15 @@
 \noindent
 \begin{minipage}[t]{0.79\textwidth}
   \vspace{0pt}
-  {\fontsize{18}{21}\selectfont\bfseries Shuo REN}\par
+  {\fontsize{18}{21}\selectfont\bfseries Shuo REN}%
+  \hspace{10pt}{\small\color{muted}Expected graduation: 2028}\par
   \vspace{3pt}
   {\small Email:
     sren@cse.cuhk.edu.hk \,$\cdot$\,
-    renshuo139@gmail.com \,$\cdot$\,
+    renshuo139@gmail.com\\
     \href{https://shuoren-mike.github.io}{shuoren-mike.github.io}}\par
   \vspace{6pt}
-  \textbf{PhD researcher building long-horizon, tool-grounded LLM agents for complex engineering workflows.} Research spans multi-agent physical-design optimization, failure-conditioned repair, and automatically generated evaluation environments, grounded in verifiable EDA and mathematical-optimization tools.\par
+  \textbf{Ph.D. candidate in CSE at CUHK, building long-horizon, tool-grounded LLM agents for complex engineering workflows.} Research spans multi-agent physical-design optimization, failure-conditioned repair, and automatically generated evaluation environments, grounded in verifiable EDA and optimization tools.\par
 \end{minipage}\hfill
 \begin{minipage}[t]{0.17\textwidth}
   \vspace{0pt}
@@ -57,64 +54,76 @@
 
 \section*{Internship \& Education}
 \entry{Research Intern, EDA Research Lab, Hong Kong Science Park}{May 2026--Present}
-\projectdesc{Developing agentic 3D-IC workflows that couple LLM agents with industrial physical-design tools and feedback for partitioning and design-space exploration.}
+\projectdesc{Recruited as key project talent. Exploring LLM agents for 3D-IC partitioning and design-space exploration, focusing on task decomposition, tool use, and multistep decisions; investigating physical feedback for long-horizon planning, error recovery, and iterative optimization to reduce repetitive engineering work.}
 
 \entry{Research Collaboration, ABCO Project (CUHK Industry Collaboration)}{Mar 2025--Apr 2026}
-\projectdesc{Built the physical-design-to-architecture feedback loop behind \href{https://arxiv.org/abs/2607.12788}{CLIP-3D}, connecting analytical 3D floorplanning with gem5, McPAT, CACTI, and HotSpot.}
+\projectdesc{HKD 1M project, rated ``Excellent'' (highest tier); built the physical-to-architecture feedback loop behind \href{https://arxiv.org/abs/2607.12788}{CLIP-3D}.}
 
-\entry{The Chinese University of Hong Kong (CUHK)}{Sep 2024--Present}
-\meta{PhD in CSE, full postgraduate studentship; working with \href{https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/}{\textcolor{muted}{Prof. Tsung-Yi Ho}} and \href{https://www.cse.cuhk.edu.hk/~byu/}{\textcolor{muted}{Prof. Bei Yu}}}
-
-\entry{Huazhong University of Science and Technology (HUST)}{2020--2024}
-\meta{BEng in Computer Science and Technology; GPA 3.93/4.00, top 1.5\%; \textbf{National Scholarship of China}}
+{\small
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{CUHK} PhD in CSE; supervised by Prof. Tsung-Yi Ho \href{https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/}{[link]}; full studentship & {\color{muted}Aug 2024--Jul 2028 (exp.)}\\
+\multicolumn{2}{@{}l@{}}{\textbf{Honors}: First Prize, \href{https://www.iccconf.cn/}{Chiplet Competition (3rd edition)}, Shanghai, 2026; \href{https://2025.iccconf.cn/}{2nd edition}, Wuhan, 2025.}\\
+\textbf{HUST} BEng in Computer Science and Technology; GPA 3.93/4.00; National Scholarship & {\color{muted}2020--2024}
+\end{tabularx}\par
+}
 
 \section*{Selected Agent Research}
-\begin{wrapfigure}[8]{l}{0.285\textwidth}
-  \vspace{0pt}
-  \centering
-  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticpd_intro.pdf}
-  \vspace{0pt}
-\end{wrapfigure}
-{\small\textbf{AgenticPD} (ASP-DAC 2027) \href{https://arxiv.org/abs/2607.04758}{[paper]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} built a multi-agent chip physical-design optimizer that \textbf{outperformed AutoTuner and ORFS-Agent on post-route WNS across all six design/technology pairs} at the same 20-evaluation budget. Designed stage-aware search, tool interfaces, and reusable design states; won 7/9 comparisons against a single agent across DeepSeek, Qwen, and Kimi backbones.\par}
-
-\vspace{6pt}
+\noindent\begin{minipage}[t]{0.285\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=0.9474\linewidth]{../materials/assets/agent_projects/agenticpd_intro.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr0.715\textwidth-10pt\relax}
+\vspace{0pt}
+{\small \textbf{AgenticPD} (ASP-DAC 2027) \href{https://arxiv.org/abs/2607.04758}{[paper]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} Developed a \textbf{multi-agent orchestration framework} coordinating placement, clock-tree, and routing agents to improve chip performance, power, and area (PPA). Integrated OpenROAD tools and reusable design states for cross-stage optimization. A scheduling agent uses execution history and tool feedback to diagnose bottlenecks, select stages and search branches, and adapt strategies.\par}
+\end{minipage}\par
 \projectseparator
-
-\begin{wrapfigure}[7]{l}{0.285\textwidth}
-  \vspace{0pt}
-  \centering
-  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticeco_intro.pdf}
-  \vspace{0pt}
-\end{wrapfigure}
-{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[paper]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} built an automated 3D-IC chip repair system combining diagnosis, parallel candidate search, and minimal-disturbance routing. \textbf{Cleared DRC in 7/9 cases versus 2/9 for stock repair and full reroute} under matched budgets; changed only 0.66\% of nets on average in cleared cases, touching no clocks. A cross-backbone rerun cleared all nine cases, with seven passing all checks and 0.44\% mean net disturbance.\par}
-
-\vspace{6pt}
+\noindent\begin{minipage}[t]{0.285\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=0.9474\linewidth]{../materials/assets/agent_projects/agenticeco_intro.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr0.715\textwidth-10pt\relax}
+\vspace{0pt}
+{\small \textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[paper]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} Built autonomous 3D chip repair agents that inspect layouts, diagnose defects, and generate local fixes from visual evidence and tool reports. Verification feedback guides queries, candidate selection, and repair revision. Localized routing, independent checks, and automatic rollback preserve existing designs during iteration.\par}
+\end{minipage}\par
 \projectseparator
-
-\begin{wrapfigure}[7]{l}{0.285\textwidth}
-  \vspace{0pt}
-  \centering
-  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/autolpbench_intro.pdf}
-  \vspace{0pt}
-\end{wrapfigure}
-{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[paper]} \href{https://anonymous.4open.science/r/AutoLPBench/}{[code]} built an end-to-end agent evaluation platform with automatic task generation, known-optimum verification, Docker execution, and trajectory/token-cost auditing. An inverse-KKT generator supplies difficulty-controlled tasks without manual answer labeling. Evaluated six model families; the solver--critic loop \textbf{raised Kimi-K2.5's solve rate from 15.1\% to 30.2\%} on a 53-item MAMO Complex subset.\par}
-
-\WFclear
+\noindent\begin{minipage}[t]{0.285\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=0.9474\linewidth]{../materials/assets/agent_projects/autolpbench_intro.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr0.715\textwidth-10pt\relax}
+\vspace{0pt}
+{\small \textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[paper]} Built an autonomous agent testbed for optimization with difficulty-controlled tasks and known optima. Integrated solver and verifier tools in Docker; agents code, verify, and refine solutions using execution and critic feedback, without manual answer labeling or per-round human intervention.\par}
+\end{minipage}\par
+\vspace{4pt}
 
 \section*{EDA Research Background}
 {\small
-\textbf{Partitioning-Free 3D-IC Floorplanning} (ASP-DAC 2026) \href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]}, jointly optimized chip block placement and die assignment, achieving shorter wirelength than six baselines on all five GSRC benchmarks.\par
+{\color{accent}\textbf{Physical Design}}\quad
+\textbf{Partitioning-Free 3D-IC Floorplanning} (ASP-DAC 2026) \href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]} \href{https://arxiv.org/abs/2609.13157}{[journal version]}: Formulated connectivity and physical constraints as optimization models; implemented 3D global placement, die assignment, and in-die refinement.
+\textbf{Rect3D} \href{https://arxiv.org/abs/2609.18946}{[paper]}: Implemented gradient optimization and grid legalization to turn continuous solutions into connected, overlap-free rectilinear layouts, jointly designing block shapes and die assignments.\par
 \vspace{3pt}
-\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[paper]}, connected chip architecture and physical evaluation; improved realized BIPS by 13.75\% on average (up to 24.77\%) over shelf-pack across 48 thermally binding configurations. Featured as a 3D-IC case study in an IDAS 2026 keynote.\par
-\vspace{3pt}
-\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[paper]}, co-optimized chiplet pin placement and 3D thermal fields, reducing wirelength by 39--43\% on average and peak temperature by up to 45.9$^\circ$C versus baselines; validated temperatures with 3D-ICE.\par
+{\color{accent}\textbf{Shift-Left Design Exploration}}\quad
+\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[paper]}: Connected architecture simulation, physical layout, and thermal analysis, feeding layout delay and temperature back into performance evaluation for early architecture selection. Featured as a 3D-IC case study in an IDAS 2026 keynote.
+\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[paper]}: Embedded pin geometry and fast thermal models in integer programming to search chiplet positions, orientations, and die assignments; validated results with independent thermal simulation for early interconnect and thermal optimization.\par
 }
 
-\section*{Technical Stack}
+\section*{Project Funding \& Support}
 {\small
-\textbf{Agent/LLM}: Python; tool-use and multi-agent systems; structured tool APIs; Docker evaluation harnesses; trajectory, failure, and token-cost analysis; AI-native development with Claude Code and Codex.\par
+\textbf{HKSTP Ideation Programme}: HKD 100,000 funding for BicroLabs.AI (2026).\par
+\textbf{CUHK G-SIPS}: Project funding for EYRA, an AI initiative for social good (2025--2026).\par
+}
+
+\section*{Technical Skills}
+{\small
+\textbf{Agent/LLM}: Extensive use of Claude Code and Codex; AI-native development; multi-agent tool use; structured APIs and Docker evaluation.\par
 \vspace{2pt}
-\textbf{EDA/Systems}: C/C++, Linux, Git; OpenROAD/ORFS and Innovus; physical design, STA, and 3D-IC workflows; gem5, McPAT, CACTI, and HotSpot.\par
+\textbf{EDA/Systems}: End-to-end physical design with OpenROAD/ORFS; Innovus; STA and 3D-IC workflows.\par
+}
+
+\section*{Academic Service}
+{\small
+\textbf{AAAI 2027}: Program Committee Member; \textbf{ICLR 2027}: Reviewer.\par
+\textbf{Other reviewing}: IEEE TCAD (2024--Present); ASP-DAC 2027; FPL 2026.\par
 }
 
 \end{document}

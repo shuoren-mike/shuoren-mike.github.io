@@ -6,7 +6,6 @@
 \usepackage{titlesec}
 \usepackage{tabularx}
 \usepackage{graphicx}
-\usepackage{wrapfig}
 
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
@@ -17,23 +16,21 @@
 \definecolor{muted}{RGB}{78,78,78}
 \hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
 \pagestyle{empty}
+\linespread{1.23}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-2pt}\titlerule]
-\titlespacing*{\section}{0pt}{5pt}{3.5pt}
+\titlespacing*{\section}{0pt}{4pt}{3pt}
 
 \newcommand{\entry}[2]{%
   \begin{tabularx}{\textwidth}{@{}Xr@{}}\textbf{#1} & {\color{muted}#2}\end{tabularx}%
 }
 \newcommand{\meta}[1]{{\small\color{muted}#1}\par}
 \newcommand{\projectdesc}[1]{\vspace{1pt}{\small #1\par}\vspace{3pt}}
-\setlength{\columnsep}{10pt}
-\setlength{\intextsep}{0pt}
 \newcommand{\projectseparator}{%
-  \WFclear
-  \vspace{2pt}
-  \noindent{\color{accent!70}\rule{\textwidth}{0.45pt}}\par
-  \vspace{4pt}%
+  \par\vspace{5pt}
+  {\color{accent!70}\hrule height 0.45pt}
+  \vspace{5pt}%
 }
 
 \begin{document}
@@ -42,14 +39,15 @@
 \begin{minipage}[t]{0.79\textwidth}
   \vspace{0pt}
   {\fontsize{18}{21}\selectfont\bfseries 任硕}\quad
-  {\fontsize{13}{16}\selectfont Shuo REN}\par
+  {\fontsize{13}{16}\selectfont Shuo REN}%
+  \hspace{10pt}{\small\color{muted}预计毕业：2028年}\par
   \vspace{3pt}
   {\small 邮箱：
     sren@cse.cuhk.edu.hk \,$\cdot$\,
-    renshuo139@gmail.com \,$\cdot$\,
+    renshuo139@gmail.com\\
     主页：\href{https://shuoren-mike.github.io}{shuoren-mike.github.io}}\par
   \vspace{6pt}
-  \textbf{香港中文大学计算机科学与工程系博士生，面向复杂工程流程研究长程、工具驱动的大语言模型智能体。} 研究工作涵盖多智能体物理设计优化、失败条件驱动的闭环修复与自动生成评测环境，以可验证的 EDA 和数学优化工具为真实任务基础。\par
+  \textbf{香港中文大学计算机科学与工程系博士候选人，面向复杂工程流程研究长程、工具驱动的大语言模型智能体。} 研究工作涵盖多智能体物理设计优化、失败条件驱动的闭环修复与自动生成评测环境，以可验证的 EDA 和数学优化工具为真实任务基础。\par
 \end{minipage}\hfill
 \begin{minipage}[t]{0.17\textwidth}
   \vspace{0pt}
@@ -60,58 +58,64 @@
 \vspace{3pt}
 
 \section*{实习与教育经历}
-\entry{Research Intern，香港科学园 EDA 研究实验室}{2026年5月--至今}
-\projectdesc{开展 Agentic 3D-IC 研究，将 LLM 智能体与工业物理设计工具及反馈闭环结合，用于 3D-IC 划分与设计空间探索。构建覆盖任务分解、工具调用、结果校验与迭代优化的智能体工作流，以可验证的物理设计反馈支持长程规划、错误恢复与设计决策，并沉淀可复用的工具接口、执行轨迹与评测机制。}
+\entry{Research Intern（项目关键人才引进），香港科学园 EDA 研究实验室}{2026年5月--至今}
+\projectdesc{研究方向为 Agentic 3D-IC，探索 LLM 智能体在 3D-IC 划分与设计空间探索中的应用，关注复杂设计任务的分解、工具调用与多步决策，以及如何利用物理设计反馈支持长程规划、错误恢复和迭代优化，减少工程师在设计探索中的重复操作。}
 
 \entry{ABCO 项目科研合作（CUHK 产学研合作项目）}{2025年3月--2026年4月}
-\projectdesc{项目经费规模 100 万港币，获“优秀”评价（最高档）；构建 \href{https://arxiv.org/abs/2607.12788}{CLIP-3D} 背后的物理设计到体系结构反馈闭环，连接解析式 3D 布局规划与 gem5、McPAT、CACTI、HotSpot。}
+\projectdesc{项目经费规模 100 万港币，获“优秀”评价（最高档）；构建 \href{https://arxiv.org/abs/2607.12788}{CLIP-3D} 背后的物理设计到体系结构反馈闭环。}
 
-\entry{香港中文大学（CUHK）}{2024年9月--至今}
-\meta{计算机科学与工程博士，全额研究生奖学金；与\href{https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/}{\textcolor{muted}{何宗易教授}}和\href{https://www.cse.cuhk.edu.hk/~byu/}{\textcolor{muted}{余备教授}}合作}
-
-\entry{华中科技大学（HUST）}{2020--2024}
-\meta{计算机科学与技术工学学士；GPA 3.93/4.00，专业前 1.5\%；\textbf{国家奖学金}}
+{\small
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{香港中文大学}\quad CSE 博士；导师何宗易教授\,\href{https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/}{[link]}；全额奖学金 & {\color{muted}2024.08--2028.07（预计）}\\
+\multicolumn{2}{@{}l@{}}{\textbf{竞赛荣誉}\quad 第三届集成芯片和芯粒技术大赛一等奖（上海，2026）；第二届一等奖（武汉，2025）。}\\
+\textbf{华中科技大学}\quad 计算机科学与技术工学学士；GPA 3.93/4.00；国家奖学金 & {\color{muted}2020--2024}
+\end{tabularx}\par
+}
 
 \section*{代表性智能体研究}
-\begin{wrapfigure}[6]{l}{0.285\textwidth}
-  \vspace{0pt}
-  \centering
-  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticpd_intro.pdf}
-  \vspace{0pt}
-\end{wrapfigure}
-{\small\textbf{AgenticPD}（ASP-DAC 2027）\href{https://arxiv.org/abs/2607.04758}{[paper]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} 构建芯片物理设计多智能体优化系统；同等 20 次评估预算下，\textbf{六组设计/工艺组合的布线后 WNS 均优于 AutoTuner 与 ORFS-Agent}。设计跨阶段搜索、工具接口与状态复用机制，根据执行反馈选择优化阶段；在 DeepSeek、Qwen、Kimi 上的九组对比中，七组优于单智能体。\par}
-
-\vspace{4pt}
+\noindent\begin{minipage}[t]{0.285\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=0.9474\linewidth]{../materials/assets/agent_projects/agenticpd_intro.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr0.715\textwidth-10pt\relax}
+\vspace{0pt}
+{\small\textbf{AgenticPD}（ASP-DAC 2027）\href{https://arxiv.org/abs/2607.04758}{[paper]} \href{https://github.com/shuoren-mike/AgenticPD}{[code]} 提出面向芯片物理设计的\textbf{多智能体编排与协同优化框架}，编排布局、时钟树与布线智能体，根据工具反馈协调分工。集成 OpenROAD 工具调用与设计状态复用，支持跨阶段迭代，让智能体根据反馈自主选择优化阶段、复用已有设计进展，综合改进芯片性能、功耗与面积（PPA）。调度智能体结合历史轨迹与阶段反馈诊断瓶颈，动态选择搜索分支并调整优化策略。\par}
+\end{minipage}\par
 \projectseparator
-
-\begin{wrapfigure}[5]{l}{0.285\textwidth}
-  \vspace{0pt}
-  \centering
-  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/agenticeco_intro.pdf}
-  \vspace{0pt}
-\end{wrapfigure}
-{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[paper]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} 构建芯片 3D-IC 自动修复系统，将缺陷诊断、并行候选探索与低扰动布线接入工具验证闭环。相同预算下，\textbf{九例缺陷中七例 DRC 清零，传统修复与全量重布线均为两例}；清零案例平均仅改动 0.66\% 的网络，不触碰时钟网络。跨模型复测九例全部清零，七例通过全部检查，平均网络改动率 0.44\%。\par}
-
-\vspace{4pt}
+\noindent\begin{minipage}[t]{0.285\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=0.9474\linewidth]{../materials/assets/agent_projects/agenticeco_intro.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr0.715\textwidth-10pt\relax}
+\vspace{0pt}
+{\small\textbf{AgenticECO} \href{https://arxiv.org/abs/2608.03738}{[paper]} \href{https://anonymous.4open.science/r/AgenticECO}{[code]} 构建 3D 芯片自主修复系统，让 Agent 承担工程师的布局检查、缺陷诊断与局部修改。结合布局视觉信息与工具报告定位问题，生成可执行修复程序；根据验证反馈自主补充信息、切换候选或重写修复策略。搭建局部布线与独立验证机制，失败自动回滚，保护已有设计并迭代修复。\par}
+\end{minipage}\par
 \projectseparator
-
-\begin{wrapfigure}[4]{l}{0.285\textwidth}
-  \vspace{0pt}
-  \centering
-  \includegraphics[width=0.27\textwidth]{../materials/assets/agent_projects/autolpbench_intro.pdf}
-  \vspace{0pt}
-\end{wrapfigure}
-{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[paper]} \href{https://anonymous.4open.science/r/AutoLPBench/}{[code]} 构建从自动出题、答案校验到智能体执行的评测平台，支持难度控制、Docker 一键评测及轨迹/token 成本分析。以逆 KKT 构造已知最优解，无需人工标注答案；评测六个模型系列，在 MAMO Complex 的 53 题子集上，\textbf{solver--critic 闭环使 Kimi-K2.5 解题率由 15.1\% 提升至 30.2\%}。\par}
-
-\WFclear
+\noindent\begin{minipage}[t]{0.285\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=0.9474\linewidth]{../materials/assets/agent_projects/autolpbench_intro.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{\dimexpr0.715\textwidth-10pt\relax}
+\vspace{0pt}
+{\small\textbf{A$^{2}$utoLPBench} \href{https://arxiv.org/abs/2607.02141}{[paper]} 构建面向数学优化任务的智能体自主实验平台，将人工出题、答案准备与评测流程自动化。设计难度可调、最优解已知的任务生成器，集成求解、验证工具与 Docker 执行环境，让 Agent 自主完成任务获取、编程求解和结果检查，并依据执行反馈与 critic 建议迭代修正，形成无需人工逐轮介入的评测闭环。\par}
+\end{minipage}\par
+\vspace{4pt}
 
 \section*{EDA 研究背景}
 {\small
-\textbf{Partitioning-Free 3D-IC Floorplanning}（ASP-DAC 2026）\href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]}：联合优化芯片模块布局与晶粒分配；五个 GSRC 基准上的线长均优于六种对比方法。\par
-\vspace{1pt}
-\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[paper]}：打通芯片体系结构与物理设计评估；48 个热约束配置中，相对 shelf-pack 基线的实际 BIPS 平均提升 13.75\%，最高 24.77\%。作为 3D-IC 案例在 IDAS 2026 keynote 中介绍。\par
-\vspace{1pt}
-\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[paper]}：联合优化芯粒引脚与 3D 热场，相对对比方法线长平均降低 39--43\%，峰值温度最多降低 45.9$^\circ$C；通过 3D-ICE 仿真验证温度。\par
+{\color{accent}\textbf{经典物理设计}}\quad
+\textbf{Partitioning-Free 3D-IC Floorplanning}（ASP-DAC 2026）\href{https://flians.github.io/pdf/3DFloorplan.pdf}{[paper]} \href{https://arxiv.org/abs/2609.13157}{[journal version]}：将网表连接与物理约束转化为优化模型，实现从 3D 全局布局、晶粒分配到片内细化的求解流程。
+\textbf{Rect3D} \href{https://arxiv.org/abs/2609.18946}{[paper]}：实现梯度优化与网格合法化，将连续优化结果转化为连通、无重叠的直角多边形布局，支持模块形状与晶粒分配的联合设计。\par
+\vspace{3pt}
+{\color{accent}\textbf{设计左移与探索}}\quad
+\textbf{CLIP-3D} \href{https://arxiv.org/abs/2607.12788}{[paper]}：打通体系结构仿真、物理布局与热分析，将布局延迟与温度反馈到性能评估，支持早期架构选型；工作作为 3D-IC 案例在 IDAS 2026 keynote 中介绍。
+\textbf{Chiplet3D} \href{https://arxiv.org/abs/2607.09742}{[paper]}：将引脚几何与快速热模型嵌入整数规划，自动搜索芯粒位置、朝向与晶粒分配，以独立热仿真验证结果，提前优化互连与散热。\par
+}
+
+\section*{项目资助与支持}
+{\small
+\textbf{HKSTP Ideation Programme}：BicroLabs.AI 项目获 10 万港币资助（2026）。\par
+\textbf{CUHK G-SIPS}：EYRA 人工智能公益项目获项目资助（2025--2026）。\par
 }
 
 \section*{技术能力}
@@ -119,6 +123,12 @@
 \textbf{Agent/LLM：}重度使用 Claude Code 和 Codex；AI 原生开发、多智能体工具调用、结构化 API 与 Docker 评测。\par
 \vspace{2pt}
 \textbf{EDA/系统：}基于 OpenROAD/ORFS 开源 flow 的 end-to-end 物理设计能力；Innovus；STA 与 3D-IC 流程。\par
+}
+
+\section*{学术服务}
+{\small
+\textbf{AAAI 2027} 程序委员会委员；\textbf{ICLR 2027} 审稿人。\par
+\textbf{其他审稿：}IEEE TCAD（2024--至今）；ASP-DAC 2027；FPL 2026。\par
 }
 
 \end{document}

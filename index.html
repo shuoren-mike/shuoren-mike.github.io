@@ -219,15 +219,15 @@
       I am currently a third-year PhD candidate in the Department of Computer Science and Engineering at
       <a href="https://www.cse.cuhk.edu.hk/">The Chinese University of Hong Kong (CUHK)</a>, affiliated with
       <a href="https://tsungyiho.github.io/research-group/">IDEALab</a>.
-      I am supervised by <a href="https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/">Prof. Tsung-Yi Ho</a> (IEEE Fellow)
-      and work closely with <a href="https://www.cse.cuhk.edu.hk/~byu/">Prof. Bei Yu</a>.
-      I am also a research intern at Hong Kong Science Park.
+      I am supervised by <a href="https://www.cse.cuhk.edu.hk/people/faculty/tsung-yi-ho/">Prof. Tsung-Yi Ho</a> (IEEE Fellow),
+      and expect to graduate in 2028. I am also a research intern at Hong Kong Science Park.
     </p>
     <p>
-      My research lies in Electronic Design Automation (EDA), with a focus on Agentic EDA and 3D-IC design:
-      building long-horizon, tool-grounded LLM agents for physical-design workflows such as QoR optimization
-      and post-route ECO, and developing floorplanning and design-space exploration methods for
-      3D integrated circuits and chiplet-based systems.
+      My research lies in Electronic Design Automation (EDA), with a focus on Agentic EDA and 3D-IC design.
+      I build long-horizon, tool-grounded LLM agents for complex engineering workflows: multi-agent
+      physical-design optimization, verification-guided chip repair, and automatically generated evaluation
+      environments, all grounded in verifiable EDA and optimization tools. My EDA background covers
+      floorplanning and design-space exploration for 3D integrated circuits and chiplet-based systems.
     </p>
     <div class="chips">
       <span class="chip">Agentic EDA</span>
@@ -268,8 +268,8 @@
       <div class="fig"><img src="assets/fig_agenticpd.png" alt="AgenticPD framework"></div>
       <div class="body">
         <span class="venue">ASP-DAC 2027</span>
-        <h3>AgenticPD: Stage-Aware Agentic Physical Design QoR Optimization</h3>
-        <p>Formulates physical-design QoR tuning as a stage-aware tree search over floorplan, placement, CTS and routing checkpoints, with a Judge Agent navigating reusable intermediate design states.</p>
+        <h3>AgenticPD: Stage-Aware Closed-Loop Physical Design Optimization</h3>
+        <p>A multi-agent framework that coordinates placement, clock-tree and routing agents on OpenROAD for cross-stage PPA optimization. A scheduling agent reads execution history and tool feedback to diagnose bottlenecks, pick the next stage and search branch, and reuse intermediate design states.</p>
         <div class="tags">
           <a href="https://arxiv.org/abs/2607.04758">Paper</a>
           <a href="https://github.com/shuoren-mike/AgenticPD">Code</a>
@@ -295,10 +295,11 @@
       <div class="body">
         <span class="venue">ASP-DAC 2026</span>
         <h3>Partitioning-free 3D-IC Floorplan</h3>
-        <p>Removes the up-front netlist partitioning step and jointly optimizes block placement and die assignment directly under physical constraints.</p>
+        <p>Removes the up-front netlist partitioning step: connectivity and physical constraints become one optimization model, solved through 3D global placement, die assignment and in-die refinement.</p>
         <div class="tags">
           <a href="https://flians.github.io/pdf/3DFloorplan.pdf">Paper</a>
-          <a href="http://www.cse.cuhk.edu.hk/~byu/papers/C307-ASPDAC2026-3DFloorplan-slides.pdf">Slides</a>
+          <a href="https://arxiv.org/abs/2609.13157">Journal Version</a>
+          <a href="https://www.cse.cuhk.edu.hk/~byu/papers/C307-ASPDAC2026-3DFloorplan-slides.pdf">Slides</a>
         </div>
       </div>
     </div>
@@ -336,9 +337,10 @@
     <div class="card">
       <div class="fig"><img src="assets/fig_rect3d.png" alt="3D-IC rectilinear floorplanning flow"></div>
       <div class="body">
-        <span class="venue">Under submission</span>
-        <h3>3D-IC Rectilinear Floorplanning</h3>
-        <p>Unifies global rectilinear floorplanning and legalization for 3D-IC layouts with irregular block shapes.</p>
+        <span class="venue">Preprint 2026</span>
+        <h3>Rect3D: 3D-IC Rectilinear Floorplanning</h3>
+        <p>Combines gradient optimization with grid legalization to turn continuous solutions into connected, overlap-free rectilinear layouts, jointly designing block shapes and die assignments.</p>
+        <div class="tags"><a href="https://arxiv.org/abs/2609.18946">Paper</a></div>
       </div>
     </div>
 
@@ -350,7 +352,7 @@
   <h2>Publications &amp; Preprints</h2>
   <ol class="pubs">
     <li>
-      <span class="title">AgenticPD: A Stage-Aware Agentic Framework for Physical Design QoR Optimization.</span><br>
+      <span class="title">AgenticPD: A Stage-Aware Agentic Framework for Closed-Loop Physical Design Optimization.</span><br>
       <span class="me">Shuo Ren</span>, et al.
       <span class="venue">Asia and South Pacific Design Automation Conference (ASP-DAC), 2027.</span><br>
       <span class="lnk"><a href="https://arxiv.org/abs/2607.04758">paper</a><a href="https://github.com/shuoren-mike/AgenticPD">code</a></span>
@@ -359,7 +361,7 @@
       <span class="title">Partitioning-free 3D-IC Floorplan.</span><br>
       <span class="me">Shuo Ren</span>, et al.
       <span class="venue">Asia and South Pacific Design Automation Conference (ASP-DAC), 2026.</span><br>
-      <span class="lnk"><a href="https://flians.github.io/pdf/3DFloorplan.pdf">paper</a><a href="http://www.cse.cuhk.edu.hk/~byu/papers/C307-ASPDAC2026-3DFloorplan-slides.pdf">slides</a></span>
+      <span class="lnk"><a href="https://flians.github.io/pdf/3DFloorplan.pdf">paper</a><a href="https://arxiv.org/abs/2609.13157">journal version</a><a href="https://www.cse.cuhk.edu.hk/~byu/papers/C307-ASPDAC2026-3DFloorplan-slides.pdf">slides</a></span>
     </li>
     <li>
       <span class="title">Expert-level Leaf Cell Layout Generation via Preference-Optimized LLM.</span><br>
@@ -376,7 +378,13 @@
       <span class="title">AgenticECO: Failure-Conditioned Agentic Repair for Post-Route ECO in 3D-IC Design.</span><br>
       <span class="me">Shuo Ren</span>, et al.
       <span class="venue">Preprint, 2026.</span><br>
-      <span class="lnk"><a href="https://arxiv.org/abs/2608.03738">paper</a></span>
+      <span class="lnk"><a href="https://arxiv.org/abs/2608.03738">paper</a><a href="https://anonymous.4open.science/r/AgenticECO">code</a></span>
+    </li>
+    <li>
+      <span class="title">Rect3D: 3D-IC Rectilinear Floorplanning.</span><br>
+      <span class="me">Shuo Ren</span>, et al.
+      <span class="venue">Preprint, 2026.</span><br>
+      <span class="lnk"><a href="https://arxiv.org/abs/2609.18946">paper</a></span>
     </li>
     <li>
       <span class="title">CLIP-3D: Architecture-level Shift-left in 3D-IC Design.</span><br>
@@ -424,8 +432,8 @@
     <span class="date">May 2026 – Present</span>
     <span class="org">Hong Kong Science Park</span>
     <ul>
-      <li>Developing agentic 3D-IC workflows that couple LLM agents with industrial physical-design tools for partitioning and design-space exploration.</li>
-      <li>Investigating 3D-IC design-space exploration under architecture-level performance and thermal constraints.</li>
+      <li>Recruited as key project talent. Exploring LLM agents for 3D-IC partitioning and design-space exploration, focusing on task decomposition, tool use and multistep decisions.</li>
+      <li>Investigating how physical-design feedback can support long-horizon planning, error recovery and iterative optimization, reducing repetitive engineering work.</li>
     </ul>
   </div>
 
@@ -434,17 +442,17 @@
     <span class="date">Mar 2025 – Apr 2026</span>
     <span class="org">Hong Kong Science Park</span>
     <ul>
-      <li>Built the physical-design-to-architecture feedback loop behind CLIP-3D, connecting analytical 3D floorplanning with gem5, McPAT, CACTI and HotSpot.</li>
-      <li>Explored hybrid-bonding ratio selection in 3D-IC partitioning and its effect on wirelength, footprint and integration cost.</li>
+      <li>HKD 1M project, rated &ldquo;Excellent&rdquo; (highest tier).</li>
+      <li>Built the physical-design-to-architecture feedback loop behind <a href="https://arxiv.org/abs/2607.12788">CLIP-3D</a>, connecting analytical 3D floorplanning with gem5, McPAT, CACTI and HotSpot so that layout delay and temperature feed back into early architecture evaluation.</li>
     </ul>
   </div>
 
   <div class="entry">
     <h3>PhD in Computer Science and Engineering</h3>
-    <span class="date">Sep 2024 – Present</span>
+    <span class="date">Aug 2024 – Jul 2028 (expected)</span>
     <span class="org">The Chinese University of Hong Kong (CUHK)</span>
     <ul>
-      <li>Postgraduate Studentship (full scholarship). Advisor: Prof. Tsung-Yi Ho; working closely with Prof. Bei Yu.</li>
+      <li>Postgraduate Studentship (full scholarship). Advisor: Prof. Tsung-Yi Ho.</li>
     </ul>
   </div>
 
@@ -464,9 +472,11 @@
 
   <div class="grp">Graduate</div>
   <div class="rows">
+    <div class="row"><div class="name">First Prize, <a href="https://www.iccconf.cn/">Chiplet Competition (3rd edition)</a><span class="sub">Shanghai</span></div><div class="yr">2026</div></div>
     <div class="row"><div class="name">HKSTP Ideation Programme Grant (HKD 100,000)<span class="sub">Hong Kong Science and Technology Parks Corporation · Project BicroLabs.AI</span></div><div class="yr">2026</div></div>
-    <div class="row"><div class="name">Global Social Impact Projects Scheme (G-SIPS) Grant<span class="sub">CUHK Office of Student Affairs · Team EYRA, co-leader</span></div><div class="yr">2025 – 2026</div></div>
-    <div class="row"><div class="name">First Prize, ChipletComp@Wuhan Competition</div><div class="yr">2025</div></div>
+    <div class="row"><div class="name">Global Social Impact Projects Scheme (G-SIPS) Grant<span class="sub">CUHK Office of Student Affairs · Team EYRA, an AI initiative for social good</span></div><div class="yr">2025 – 2026</div></div>
+    <div class="row"><div class="name">Xiaomi MiMo Orbit Creator Incentive Program<span class="sub">Selected creator; awarded API token credits</span></div><div class="yr">2026</div></div>
+    <div class="row"><div class="name">First Prize, <a href="https://2025.iccconf.cn/">Chiplet Competition (2nd edition)</a><span class="sub">Wuhan · main code developer and defense presenter</span></div><div class="yr">2025</div></div>
     <div class="row"><div class="name">Postgraduate Studentship (full scholarship)<span class="sub">The Chinese University of Hong Kong</span></div><div class="yr">2024</div></div>
   </div>
 
@@ -489,6 +499,7 @@
   <div class="rows">
     <div class="row"><div class="name">Reviewer, IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</div><div class="yr">2024 – present</div></div>
     <div class="row"><div class="name">Program Committee Member, AAAI Conference on Artificial Intelligence<span class="sub">Reviewer, AAAI 2025</span></div><div class="yr">2027</div></div>
+    <div class="row"><div class="name">Reviewer, International Conference on Learning Representations (ICLR)</div><div class="yr">2027</div></div>
     <div class="row"><div class="name">Reviewer, Asia and South Pacific Design Automation Conference (ASP-DAC)</div><div class="yr">2027</div></div>
     <div class="row"><div class="name">Reviewer, International Conference on Field-Programmable Logic and Applications (FPL)</div><div class="yr">2026</div></div>
     <div class="row"><div class="name">Member, CUHK CSE PhD Admission Student Committee<span class="sub">Inaugural committee</span></div><div class="yr">2027</div></div>
@@ -506,8 +517,8 @@
   <h2>Technical Skills</h2>
   <div class="rows skills">
     <div class="row"><div class="k">Languages</div><div class="v">Python, C/C++, Java, SQL, MATLAB, Verilog</div></div>
-    <div class="row"><div class="k">EDA &amp; Systems</div><div class="v">OpenROAD / ORFS, Innovus, static timing analysis and 3D-IC flows, gem5, McPAT, CACTI, HotSpot, Linux, Git</div></div>
-    <div class="row"><div class="k">Agents &amp; ML</div><div class="v">Tool-use and multi-agent systems, structured tool APIs, Docker evaluation harnesses, PyTorch</div></div>
+    <div class="row"><div class="k">EDA &amp; Systems</div><div class="v">End-to-end physical design with OpenROAD / ORFS, Innovus, static timing analysis, PPA optimization and local ECO repair, 3D-IC floorplanning and thermal-aware exploration (gem5, McPAT, CACTI, HotSpot), Linux, Git</div></div>
+    <div class="row"><div class="k">Agents &amp; ML</div><div class="v">AI-native development with Claude Code and Codex, multi-agent orchestration and tool use, structured tool APIs, Docker-based evaluation, verification feedback and automatic rollback, PyTorch</div></div>
   </div>
 </section>
 
@@ -527,7 +538,7 @@
 </main>
 
 <footer>
-  © 2026 Shuo Ren · Last updated September 2026
+  © 2026 Shuo Ren · Last updated November 2026
 </footer>
 
 </body>
